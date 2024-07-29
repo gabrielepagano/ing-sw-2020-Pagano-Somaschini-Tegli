@@ -1,0 +1,12 @@
+module:it.polimi.ingsw
+it.polimi.ingsw
+it.polimi.ingsw.client
+it.polimi.ingsw.controller
+it.polimi.ingsw.gui
+it.polimi.ingsw.model
+it.polimi.ingsw.model.cards
+it.polimi.ingsw.network
+it.polimi.ingsw.network.events
+it.polimi.ingsw.server
+it.polimi.ingsw.utils
+it.polimi.ingsw.view

@@ -1,0 +1,8 @@
+BotPan,BotHera,BotApollo
+4,2
+2,3
+0,0
+0,4
+1,0
+3,0
+pan,hera,apollo
