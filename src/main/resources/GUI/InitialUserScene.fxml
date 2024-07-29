@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="670.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.polimi.ingsw.gui.InitialUserSceneController">
+   <children>
+      <Label alignment="CENTER" layoutX="82.0" layoutY="137.0" prefHeight="27.0" prefWidth="296.0" text="Please insert your nickname:">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="84.0" fitWidth="280.0" layoutX="240.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@santorini-logo.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="playersLabel" alignment="CENTER" layoutX="52.0" layoutY="233.0" prefHeight="28.0" prefWidth="420.0" text="How many players do you want to play with?">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="playImageView" fitHeight="161.0" fitWidth="182.0" layoutX="291.0" layoutY="302.0" onMouseClicked="#sendDataToServer" pickOnBounds="true" preserveRatio="true">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <image>
+            <Image url="@button-play-down.png" />
+         </image>
+      </ImageView>
+      <ComboBox fx:id="nPlayersComboBox" layoutX="471.0" layoutY="228.0" maxWidth="79.0" prefHeight="27.0" prefWidth="60.0" />
+      <TextField fx:id="nicknameTextField" layoutX="384.0" layoutY="131.0" promptText="Nickname">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+         <effect>
+            <InnerShadow />
+         </effect>
+      </TextField>
+   </children>
+</AnchorPane>
