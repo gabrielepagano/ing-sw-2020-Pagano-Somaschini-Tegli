@@ -1,97 +1,97 @@
-# Prova finale di Ingegneria del Software - Anno Accademico 2019-2020
+# Software Engineering Final Project – Academic Year 2019–2020
 ![Santorini box](src/main/resources/GUI/santorini_img.jpg)
 
-Il progetto consiste nello sviluppo di una versione software distribuita del board game [Santorini](http://www.craniocreations.it/prodotto/santorini/). 
-E' stato applicato il pattern architetturale Model-View-Controller. L'applicazione prevede un **server**, che accetta le richieste di connessione dei client e gestisce 
-lo svolgimento delle partite, e un **client**, realizzato sia in versione CLI che in versione GUI usando JavaFX.
+This project consists in the development of a distributed software version of the board game [Santorini](http://www.craniocreations.it/prodotto/santorini/). 
+The application follows the Model–View–Controller (MVC) architectural pattern.
+It is composed by a **server**, which accepts client connections and manages the game flow, and a **client**, available both as a CLI and a GUI implemented using JavaFX.
 
-## Documentazione del progetto
+## Project Documentation
 
-### UML
+### UML Diagrams
 
-Si riportano collegamenti alle cartelle con i diagrammi UML realizzati all'inizio dello sviluppo, più di alto livello, e i diagrammi UML finali, generati con tool automatici
+Below are links to the UML diagrams created during development, including initial high-level diagrams and final diagrams generated automatically using dedicated tools:
 
-- [Diagrammi UML iniziali](https://github.com/tataboxxe/ing-sw-2020-Pagano-Somaschini-Tegli/tree/master/deliverables/UML/Initial)
-- [Diagrammi UML di alto livello](https://github.com/tataboxxe/ing-sw-2020-Pagano-Somaschini-Tegli/tree/master/deliverables/UML/High%20Level)
-- [Diagrammi UML finali](https://github.com/tataboxxe/ing-sw-2020-Pagano-Somaschini-Tegli/tree/master/deliverables/UML/Final)
+- [Initial UML diagrams](https://github.com/gabrielepagano/ing-sw-2020-Pagano-Somaschini-Tegli/tree/master/deliverables/UML/Initial)
+- [High-level UML diagrams](https://github.com/gabrielepagano/ing-sw-2020-Pagano-Somaschini-Tegli/tree/master/deliverables/UML/High%20Level)
+- [Final UML diagrams](https://github.com/gabrielepagano/ing-sw-2020-Pagano-Somaschini-Tegli/tree/master/deliverables/UML/Final)
 
-### Librerie utilizzate
-|Libreria|Descrizione|
+### Libraries Used
+|Library|Description|
 |---------------|-----------|
-|__junit__|framework Java per lo unit testing|
-|__maven__|build automation e dependency management tool|
-|__JavaFX__|libreria grafica di Java|
+|__JUnit__|Java framework for unit testing|
+|__Maven__|Build automation and dependency management tool|
+|__JavaFX__|Java graphical library|
 
 ### JavaDoc
-Il codice è stato documentato secondo la notazione Javadoc. I file di documentazione sono reperibili [qui](https://github.com/tataboxxe/ing-sw-2020-Pagano-Somaschini-Tegli/tree/master/docs)
+The source code has been documented following the Javadoc standard. The generated documentation is available [here](https://github.com/gabrielepagano/ing-sw-2020-Pagano-Somaschini-Tegli/tree/master/docs)
 
-### Jars
+### JAR Files
 
-Abbiamo prodotto 
-- un executable jar per il server
-- un executable jar per il client su sistema Windows
-- un executable jar per il client su sistema Unix-like
+The following executable JARs have been produced:
+- one executable JAR for the server
+- one executable JAR for the client on Windows
+- one executable JAR for the client on Unix-like systems
 
-I 3 jar si trovano [qui](https://github.com/tataboxxe/ing-sw-2020-Pagano-Somaschini-Tegli/tree/master/deliverables/jars)
+All JAR files can be found [here](https://github.com/gabrielepagano/ing-sw-2020-Pagano-Somaschini-Tegli/tree/master/deliverables/jars)
 
-## Funzionalità
-### Funzionalità Sviluppate
-- Regole Complete
+## Features
+### Implemented Features
+- Complete game rules
 - CLI
 - GUI
-- Socket
-- 2 FA
+- Socket-based networking
+- 2 Advanced Features
 
-### Funzionalità Aggiuntive Sviluppate
-- Partite multiple
-- Advanced Gods
+### Advanced Features
+- Multiple concurrent games
+- Advanced God powers
 
 
-Come leggera aggiunta alla specifica abbiamo fatto in modo che una disconnessione (non durante l'inizializzazione) venga interpretata come sconfitta e non necessariamente faccia terminare la partita. 
-Per esempio, se in una partita da 3 giocatori qualcuno si disconnette la partita continua e il giocatore disconnesso viene semplicemente dichiarato sconfitto
+As a minor extension to the original specification, client disconnections (except during the initialization phase) are interpreted as a loss rather than causing the match to terminate.
 
-## Esecuzione dei JAR
+For example, in a three-player game, if one player disconnects, the game continues and the disconnected player is simply declared defeated.
+
+## Running the JAR Files
 
 ### Client
 
-*I client per sistemi Windows e Unix-like funzionano allo stesso modo.*
+*The client behaves identically on Windows and Unix-like systems.*
 
-I jar client permettono di specificare, con opportuni arguments passati
-- tipologia di interfaccia utente (CLI o GUI)
-- indirizzo IP a cui raggiungere il server
-- numero di porta su cui è in ascolto il server
+The client JAR accepts the following command-line arguments:
+- user interface type (CLI or GUI)
+- server IP address
+- server port number
 
-La specifica della tipologia di interfaccia è **indispensabile** e avviene indicando "cli" o "gui" (case-insensitive) dopo il nome dell'eseguibile jar
+The UI type is **mandatory** and must be specified as "cli" or "gui" (case-insensitive) immediately after the JAR name.
 
-Il secondo e il terzo argomento sono invece opzionali e in caso non vengano specificati il programma utilizzerà i valori di default
-- *localhost* per 
-l'IP
-- *12345* per il numero di porta
+The IP address and port number are optional; if omitted, the following default values are used:
+- IP address: *localhost*
+- port: *12345*
 
-Affinchè un client possa avviarsi è **necessario** che ci sia un server attivo all'indirizzo e porta specificati
+A running server at the specified address and port is **required** for the client to start.
 
 #### CLI
-Per una migliore esperienza di gioco da linea di comando è consigliato l'utilizzo di un terminale che supporti gli ANSI escape. 
-Il comando per avviare il client in modalità CLI è perciò il seguente
+For an optimal command-line experience, it is recommended to use a terminal that supports ANSI escape sequences.
+
+To start the client in CLI mode:
 ```
 java -jar Client-jar-with-dependencies.jar cli [ip] [port]
 ```
 
-I comandi principali supportati dalla CLI sono:
-- **quit** per disconnettersi dal server (e concedere la partita, se è terminata la fase di inizializzazione)
-- **description NOME_CARTA** per visualizzare una breve descrizione del potere divinità specificato
-- **r,c** (dove r e c sono interi compresi tra 0 e 4, estremi inclusi) per indicare una posizione sul tabellone. Questo serve praticamente in tutte le fasi di 
-gioco, per esempio per selezionare un worker e la casella su cui muoverlo e farlo costruire
+Main CLI commands:
+- **quit:** disconnects from the server (and forfeits the game if initialization is complete)
+- **description CARD_NAME:** shows a brief description of the specified God power
+- **r,c:** where r and c are integers between 0 and 4 (inclusive), representing a board position. This command is used throughout the game, for example to select a worker or choose a cell for movement and building.
 
-Quando c'è la possibilità di utilizzare il potere divinità, l'applicazione pone una domanda binaria, a cui l'utente deve rispondere digitand una delle alternative proposte
+When a God power can be used, the application prompts the user with a binary choice, which must be answered by typing one of the provided options.
 
-Durante l'inizializzazione di una partita viene richiesto di scegliere un potere divinità ed eventualmente il primo player a giocare (se chi sta leggendo ha 
-la fortuna di essere il challenger). In entrambi i casi, ciò si fa semplicemente digitando il nome della carta o del player
+During game initialization, players are asked to select a God power and, if applicable (for the challenger), the starting player. Both selections are made by typing the name of the card or player.
+
 #### GUI
 
-La GUI supporta le stesse modalità di interazione indicate per la CLI, con l'aggiunta di qualche widget e abbreviazione, come 
-la possibilità di cliccare direttamente su una casella del tabellone. Il comando per avviare il client in modalità GUI è perciò il 
-seguente
+The GUI supports the same interactions as the CLI, with additional widgets and shortcuts, such as the ability to directly click on a board cell.
+
+To start the client in GUI mode:
 
 ```
 java -jar Client-jar-with-dependencies.jar gui [ip] [port]
@@ -99,38 +99,38 @@ java -jar Client-jar-with-dependencies.jar gui [ip] [port]
 
 ### Server
 
-Il jar server permette di specificare un numero di porta custom, con un argomento opzionale passato all'eseguibile. Se non viene specificato alcun numero di porta 
-personalizzato o ne viene indicato uno non valido, l'applicazione utilizzerà quello di default (*12345*). Il comando per avviare il server è perciò il seguente
+The server JAR optionally accepts a custom port number as a command-line argument.
+If no port is specified, or if the provided port is invalid, the default port (*12345*) is used.
+
+To start the server:
 ```
 java -jar Server-jar-with-dependencies.jar [port]
 ```
 
 ## Testing
 
-Sono stati testati il Model e il Controller del progetto. In particolare, sono stati effettuati diversi test di unità e di integrazione rispetto al funzionamento generale 
-del sistema e agli aspetti dei poteri divinità, comuni o specifici delle singole carte
+Both the Model and Controller layers were tested. A comprehensive set of unit and integration tests was implemented, covering both general system behavior and the logic related to God powers, including card-specific rules.
 
-#### Test Coverage del package it.polimi.ingsw.model
+#### Test Coverage
 
-Coverage raggiunto: 94%
+- Package: it.polimi.ingsw.model
+- Coverage achieved: 94%
 
 ![](src/main/resources/Test%20Coverage/Test%20Coverage%20it.polimi.ingsw.model.png)
 
-#### Test Coverage del package it.polimi.ingsw.model.cards
-
-Coverage raggiunto: 96%
+- Package: it.polimi.ingsw.model.cards
+- Coverage achieved: 96%
 
 
 ![](src/main/resources/Test%20Coverage/Test%20Coverage%20it.polimi.ingsw.model.cards.png)
 
-#### Test Coverage del package it.polimi.ingsw.controller
-
-Coverage raggiunto: 82%
+- Package: it.polimi.ingsw.controller
+- Coverage achieved: 82%
 
 
 ![](src/main/resources/Test%20Coverage/Test%20Coverage%20it.polimi.ingsw.controller.png)
 
-## Componenti del gruppo
+## Team Members
 - [__Gabriele Pagano__](https://github.com/gabrielepagano)
 - [__Marco Somaschini__](https://github.com/MarcoSomaschini)
 - [__Gabriele Tegli__](https://github.com/tataboxxe)
